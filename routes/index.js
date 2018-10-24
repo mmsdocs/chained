@@ -12,9 +12,9 @@ function queryLinks(query) {
   let links = require('../saved_links.json');
   splitted_query = query.split(" ");
   results = links.filter(
-    x => x.tags.find(y => splitted_query.find(z => y === z)) || splitted_query.find(a => a === x.title)
-  )
-  return results
+    link => link.tags.find(tag => splitted_query.find(single_query => tag === single_query)) || splitted_query.find(single_query => single_query === link.title)
+  );
+  return results;
 }
 
 /* GET home page. */
