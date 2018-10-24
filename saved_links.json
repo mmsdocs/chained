@@ -1,8 +1,8 @@
 [
     {
-      "title": "aaaa",
-      "tags": ["bb", "cc"],
-      "link": "https://www.google.com"
+      "title": "Apache Kafka — Aprendendo na prática",
+      "tags": ["kafka", "docker", "compose", "zookeeper", "pt", "br", "produzir", "mensagens", "tutorial", "apache", "aprender"],
+      "link": "https://medium.com/trainingcenter/apache-kafka-codifica%C3%A7%C3%A3o-na-pratica-9c6a4142a08f"
     },
     {
       "title": "bbbb",
