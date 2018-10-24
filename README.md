@@ -1,0 +1,3 @@
+# Chained
+
+This project has the purpose to aggregate all links used during a project development, like a 'favorite browser service'. But in future versions the project will be more integrated with many sites like Wikipedia, Stack Overflow, Medium blogs and more...

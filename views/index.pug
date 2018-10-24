@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .links-container
+    .blue-text.text-darken-2
+      each result in results ? results : ['There are no results']
+        .row
+          .col.s12
+            .card.blue-grey.darken-1
+              .card-content.white-text
+                span.card-title
+                  p=result.title
+                each tag in result.tags ? result.tags : ['There are no tags']
+                  p=tag
+              .card-action
+                a(href=result.link, target="_blank")
+                  span link
