@@ -13,8 +13,8 @@ log_chained:
 	$(DOCKER_COMPOSE) logs | grep -i 'chained'
 
 .PHONY: run
-log_chained:
-	$(DOCKER_COMPOSE) run -d
+run:
+	$(DOCKER_COMPOSE) up -d
 
 .PHONY: down
 down:
