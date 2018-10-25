@@ -1,6 +1,7 @@
 version: '3'
 services:
   chained:
+    image: chained:0.0.0
     build: .
     command: npm start
     volumes:
@@ -9,11 +10,33 @@ services:
     ports:
       - "5000:5000"
     depends_on:
-      - postgres
+      - db
     environment:
       DATABASE_URL: postgres://postgres:postgres@db:5432/chained_db
-  postgres:
+  db:
     image: postgres:9.6.2-alpine
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
+      POSTGRES_DB: chained_db
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/10-init.sql
+      - ./db/create-tables.sql:/docker-entrypoint-initdb.d/20-create-tables.sql
+      - ./db/create-procedures.sql:/docker-entrypoint-initdb.d/30-create-procedures.sql
+
+  postgrest:
+    image: postgrest/postgrest
+    ports:
+      - "3000:3000"
+    links:
+      - db:db
+    environment:
+      PGRST_DB_URI: postgres://postgres:postgres@db:5432/chained_db
+      PGRST_DB_SCHEMA: public
+      PGRST_DB_ANON_ROLE: postgres #In production this role should not be the same as the one used for the connection
+    depends_on:
+      - db
+      - chained
+volumes:
+  db:
