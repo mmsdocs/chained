@@ -1,6 +1,18 @@
 extends layout
 
 block content
+  nav
+    .nav-wrapper
+      form
+        .input-field
+          input#searchBar.form-control(
+            type="search",
+            placeholder=searchLabel name=searchEndpoint
+            required)
+          label.label-icon(for="search")
+            i.material-icons search
+          i.material-icons close
+
   .links-container
     .blue-text.text-darken-2
       each result in results ? results : ['There are no results']
@@ -10,8 +22,7 @@ block content
               .card-content.white-text
                 span.card-title
                   p=result.title
-                each tag in result.tags ? result.tags : ['There are no tags']
-                  p=tag
+                span=result.tags
               .card-action
                 a(href=result.link, target="_blank")
                   span link

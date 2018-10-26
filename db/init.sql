@@ -1,0 +1,1 @@
+GRANT ALL PRIVILEGES ON DATABASE "chained_db" to postgres;

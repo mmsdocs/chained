@@ -7,16 +7,16 @@ html
     link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
   body
-    nav
-      .nav-wrapper
-        form
-          .input-field
-            input#searchBar.form-control(
-              type="search",
-              placeholder='What you desire?' name='q'
-              required)
-            label.label-icon(for="search")
-              i.material-icons search
-            i.material-icons close
-        block content
+    block content
+    .fixed-action-btn
+      a.btn-floating.btn-large.red
+        i.large.material-icons add
+      ul
+        li
+          a.btn-floating.red(href="/")
+            i.material-icons home
+        li
+          a.btn-floating.red(href="/new")
+            i.material-icons insert_link
+    script(src="/javascripts/fb.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
